@@ -1,1 +1,63 @@
+<!-- activity_main.xml -->
+<!-- Este arquivo define a interface visual do seu aplicativo. -->
+<!-- O LinearLayout é usado para organizar os elementos verticalmente e centralizá-los na tela. -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/black"
+    tools:context=".MainActivity">
+
+    <!-- TextView para exibir seu nome completo e a data. -->
+    <!-- Substitua "SEU NOME COMPLETO" e "DATA ATUAL" pelo seu nome e a data. -->
+    <TextView
+        android:id="@+id/tvNomeCompleto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEU NOME COMPLETO - DATA ATUAL"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Botão de interação com o texto "Clique aqui". -->
+    <Button
+        android:id="@+id/btnCliqueAqui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clique aqui"
+        android:backgroundTint="@color/design_default_color_primary"/>
+
+</LinearLayout>
+```kotlin
+// MainActivity.kt
+// Este arquivo contém a lógica do aplicativo.
+
+package com.example.meusegundoapp
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Define o arquivo de layout (activity_main.xml) para esta Activity.
+        setContentView(R.layout.activity_main)
+
+        // Encontra o botão pelo seu ID definido no arquivo XML.
+        val button = findViewById<Button>(R.id.btnCliqueAqui)
+
+        // Define um "listener" que espera o clique do usuário no botão.
+        button.setOnClickListener {
+            // Cria e exibe uma mensagem Toast na parte inferior da tela.
+            // A mensagem será "Bem-vindo ao meu App!".
+            Toast.makeText(this, "Bem-vindo ao meu App!", Toast.LENGTH_LONG).show()
+        }
+    }
+}
 
